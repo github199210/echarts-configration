@@ -3,12 +3,13 @@
  * @Author: sqq
  * @Date: 2020-12-11 15:20:29
  * @LastEditors: sqq
- * @LastEditTime: 2020-12-11 15:36:02
+ * @LastEditTime: 2020-12-14 16:41:18
 -->
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">公共配置</router-link> |
+      <router-link to='/'>echart安装</router-link>|
+      <router-link to="/commonconfig">公共配置</router-link> |
       <router-link to="/line">折线图</router-link> |
       <router-link to="/bar">柱状图</router-link>|
       <router-link to="/pie">饼图</router-link>

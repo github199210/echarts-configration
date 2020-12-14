@@ -3,19 +3,24 @@
  * @Author: sqq
  * @Date: 2020-12-11 15:20:29
  * @LastEditors: sqq
- * @LastEditTime: 2020-12-11 15:37:36
+ * @LastEditTime: 2020-12-14 16:12:28
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import CommonConfig from '../views/CommonConfig.vue'
+import Install from '../views/install.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
+    name: 'install',
+    component: Install
+  },
+  {
+    path: '/commonconfig',
     name: 'commonConfig',
-    component: CommonConfig
+    component: () => import('../views/CommonConfig.vue')
   },
   {
     path: '/line',

@@ -3,18 +3,25 @@
  * @Author: sqq
  * @Date: 2020-12-11 15:38:00
  * @LastEditors: sqq
- * @LastEditTime: 2020-12-14 16:44:49
+ * @LastEditTime: 2020-12-14 17:51:14
 -->
 <template>
   <div class="common-config">
-    <div id="common" style="width: 400px;height: 600px;"></div>
+    <div id="common" style="width: 400px;height: 100%;"></div>
     <div class="tips">
-
+      <el-image style="width: 100px; height: 100px" :src="require('../assets/公共配置.jpg')" :preview-src-list="imgList"
+        @mousedown.native='dragImage'>
+      </el-image>
     </div>
   </div>
 </template>
 <script>
   export default {
+    data() {
+      return {
+        imgList: [require('../assets/公共配置.jpg')]
+      }
+    },
     mounted() {
       let commonCharts = this.$echarts.init(document.getElementById('common'))
       // let option = {
@@ -67,21 +74,27 @@
           type: 'line'
         }]
       }
+      commonCharts.setOption(option)
+      window.onresize = commonCharts.resize
+    },
+    methods: {
+      dragImage(e) {
+        console.log('鼠标按下', e, window.clientX, window.clientY);
 
-    }
+      }
+    },
   }
 
 </script>
 <style lang="less" scoped>
   .common-config {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    height: calc(100vh - 80px);
+  }
 
-    .tips {
-      flex: 1;
-      background-color: #ccc;
-    }
+  .tips {
+    flex: 1;
+    background-color: #ccc;
   }
 
 </style>
